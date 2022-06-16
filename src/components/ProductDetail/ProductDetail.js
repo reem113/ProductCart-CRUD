@@ -1,6 +1,6 @@
 import "../style.css";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { addToCart, removeItem } from "../../Redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,12 +9,15 @@ import { productsFetch } from "../../Redux/productsSlice";
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
+  const [added, setAdded] = useState(false)
   const product = useSelector((state) => state.products.items);
 
   const handleAddToCart = (product) => {
+    setAdded(true);
     dispatch(addToCart(product));
   };
   const handleRemoveFromCart = (product) => {
+    setAdded(false)
     dispatch(removeItem(product));
   };
 
@@ -75,7 +78,7 @@ const ProductDetail = () => {
                       className=" btn-main"
                       onClick={() => handleAddToCart(product)}
                     >
-                      Add
+                      {added ? 'Added To Cart' : 'Add'}
                     </button>
                   }
                 </div>
