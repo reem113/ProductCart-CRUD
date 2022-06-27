@@ -29,3 +29,7 @@ To Start Server:
 To Visit App:
 
 `localhost:3000/`
+
+##Technologies Used:
+
+Reactjs, Reduxjs/toolkit, JS, ES6, HTML5, CSS3 
